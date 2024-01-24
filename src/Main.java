@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        /*
         groceryList groceryList1 = new groceryList();
         int command;
         do {
@@ -32,5 +33,42 @@ public class Main {
             groceryList1.printSorted();
         }while(command!=0);
         input.close();
+        System.out.println("scanner has been closed");
+        */
+
+    Contact Bob=new Contact("Bob","31415926");
+    Contact Alice=new Contact("Alice","16180339");
+    Contact Tom=new Contact("Tom","11235813");
+    Contact Jane=new Contact("Jane","23571113");
+
+    MobilePhone mobilePhone=new MobilePhone("1212121212");
+    mobilePhone.addNewContact(Bob);
+    mobilePhone.addNewContact(Alice);
+    mobilePhone.addNewContact(Tom);
+    mobilePhone.addNewContact(Jane);
+    mobilePhone.printContact();
+
+        System.out.println("after remove output");
+    boolean afterRemove=mobilePhone.removeContact(Bob);
+    mobilePhone.printContact();
+        System.out.println("is contact removed?: "+afterRemove);
+
+        System.out.println("query output");
+        Contact contact=mobilePhone.queryContact("Jan");
+        if(contact!=null){
+            System.out.println("name:"+contact.getName()+", phone number:"+contact.getPhoneNumber());
+        }else{
+            System.out.println("!!query contact-null");
+        }
+
+        System.out.println("find contact test 1");
+        int index1= mobilePhone.findContact("Bob");
+        System.out.println("is contact 1 found? Index: "+index1);
+
+        System.out.println("find contact test 2");
+        int index2= mobilePhone.findContact("Jane");
+        System.out.println("is contact 1 found? Index: "+index2);
+
+
     }
 }
